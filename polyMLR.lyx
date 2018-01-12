@@ -137,7 +137,7 @@ We introduce an analytic potential energy function for polyatomic molecules
 
 \begin_layout Standard
 The MLR (Morse/Long-range) function has been very successful for diatomic
- molecules (systems with one radial coordiate) 
+ molecules (systems with one radial coordinate) 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "LeRoy2006,LeRoy2007,Salami2007,Shayesteh2007,LeRoy2009,Coxon2010,Stein2010,Piticco2010a,LeRoy2011,Ivanova2011,Dattani2011,Xie2011,Yukiya2013,Knockel2013,Semczuk2013,Wang2013,Li2013,Gunton2013,Meshkov2014,Dattani2014c,Coxon2015,Walji2015,Dattani2015,Dattani2014b"
@@ -145,8 +145,8 @@ key "LeRoy2006,LeRoy2007,Salami2007,Shayesteh2007,LeRoy2009,Coxon2010,Stein2010,
 \end_inset
 
 .
- Even for Van der Waals comlpexes, where the potential depends on one radial
- corrdinate and one or many anglular coordinates, it has been possible to
+ Even for Van der Waals complexes, where the potential depends on one radial
+ coordinate and one or many angular coordinates, it has been possible to
  build multi-dimensional MLR potential energy functions since for fixed
  values of all angular coordinates we can use the 1D-MLR to represent the
  energy dependence on the single radial coordinate 
@@ -159,7 +159,7 @@ key "Li2008,Li2010,Tritzant-Martinez2013,Wang2013,Li2013a,Ma2014"
 .
  However the mathematics is much more complicated for systems with more
  than one radial coordinate and such systems are still commonly represented
- by splines (which are not analytic functons, do not extrapolate properly,
+ by splines (which are not analytic functions, do not extrapolate properly,
  and suffer from spurious oscillations between the points on which they
  are based).
  A very simple example of a system with two radial coordinates is CO
@@ -331,7 +331,7 @@ A potential issue with the second formulation is that for large
 \begin_inset Formula $r^{6}$
 \end_inset
 
- terms that need to be cancelled out, but this should be possible to do,
+ terms that need to be canceled out, but this should be possible to do,
  similar to the way we did it for 
 \begin_inset Formula $C_{6}^{{\rm adj}}$
 \end_inset
@@ -522,7 +522,7 @@ where
 \end_inset
 
  slice.
- An immediate problem is that for a symmetric potetial, 
+ An immediate problem is that for a symmetric potential, 
 \begin_inset Formula $\mathfrak{D}_{e}$
 \end_inset
 
@@ -766,7 +766,11 @@ V(r) & =D_{e}\left(1-e^{-\beta\left(r-r_{e}\right)}\right)^{2}\\
 
 \end_inset
 
-Instead, we want the 'right' long-range behaviour.
+Instead, we want the 'right' long-range 
+\lang british
+behaviour
+\lang english
+.
  Let's try to add a constant:
 \end_layout
 
@@ -781,11 +785,17 @@ Instead, we want the 'right' long-range behaviour.
 
 That is good.
  But not the situation in the 2D problem.
- The long-range behavior should be controlled by the diatomic potential.
- We define the diatomic potential as
+ The long-range behaviour should be controlled by the diatomic potential.
+ We define the 
+\series bold
+\bar under
+diatomic potential
+\series default
+\bar default
+ as
 \begin_inset Formula 
 \begin{align}
-V_{\infty}(r) & =D_{\infty}\left(1-e^{-\beta_{\infty}\left(r-r_{e,\infty}\right)}\right)^{2}-D_{\infty}\\
+V_{{\rm diatomic}}(r)\equiv V_{\infty}(r) & =D_{\infty}\left(1-e^{-\beta_{\infty}\left(r-r_{e,\infty}\right)}\right)^{2}-D_{\infty}\\
 \lim_{r\to\infty}V_{\infty}\left(r\right) & =0
 \end{align}
 
@@ -800,6 +810,8 @@ with all signs with subscript
 \end_inset
 
  going to infinity.
+ Apparently, it also means that it is the diatomic potential energy curve,
+ since the third atom dissociated.
  
 \end_layout
 
@@ -812,15 +824,19 @@ Let's define some energies:
 \begin{align}
 V(\infty,\infty) & =0\\
 V(R_{e},R_{e}) & =-\mathfrak{D}_{e}\\
-V(\infty,R_{e}) & =-\mathfrak{D}_{e,{\rm diatomic}}+\\
-V(R_{e},\infty) & =-\mathfrak{D}_{e,{\rm diatomic}}+\\
-V_{{\rm diatomic}}(\infty) & =0\\
-V_{{\rm diatomic}}(R_{e,{\rm diatomic}}) & =-\mathfrak{D}_{e,{\rm diatomic}}
+V(\infty,R_{e,{\rm diatomic}}) & =-\mathfrak{D}_{e,{\rm diatomic}}\\
+V(R_{e,{\rm diatomic}},\infty) & =-\mathfrak{D}_{e,{\rm diatomic}}\\
+V_{\infty}(\infty)\equiv V_{{\rm diatomic}}(\infty) & =0\\
+V_{\infty}(r_{e,\infty})\equiv V_{{\rm diatomic}}(R_{e,{\rm diatomic}}) & =-\mathfrak{D}_{e,{\rm diatomic}}
 \end{align}
 
 \end_inset
 
+where 
+\begin_inset Formula $R_{e}$
+\end_inset
 
+ means the bond length at global minimum.
 \end_layout
 
 \begin_layout Standard
@@ -832,23 +848,23 @@ Considering the fact that no matter which kind of 1D slice, the energy for
 \begin_inset Formula 
 \begin{align}
 V\left(r_{1},r_{2}\right) & =\left(D_{e}\left(r_{2}\right)\left(1-e^{-\beta\left(r_{1}-r_{e}\left(r_{2}\right)\right)}\right)^{2}+D_{e}\left(r_{1}\right)\left(1-e^{-\beta\left(r_{2}-r_{e}\left(r_{1}\right)\right)}\right)^{2}-D_{e}(r_{2})-D_{e}(r_{1})+V_{{\rm diatomic}}(r_{1})+V_{{\rm diatomic}}(r_{2})\right)/2\\
-D_{e}(r_{2}) & =V(\infty,r_{2})-\min_{r_{1}}\left(V(r_{1},r_{2})\right)\\
-D_{e}(r_{2}) & =V_{{\rm diatomic}}(r_{2})-V_{{\rm {\rm min_{r_{1}}}}}(r_{2})\\
+D_{e}(r_{2}) & =V(\infty,r_{2})-\min_{r_{1}}\left(V(r_{1},r_{2})\right)\quad\textrm{[the \ensuremath{\mathfrak{D}_{e}} along the 1D slice, which defines the energy difference between the minimum and the asymptote]}\\
 r_{e}(R_{e}) & =R_{e}\quad\textrm{[The bond length at global minimum]}\\
 V\left(R_{e},R_{e}\right) & =-D_{e}(R_{e})+V_{\infty}(R_{e})\\
- & =-D_{e}(R_{e})+W\\
-V(\infty,r_{2}) & =\left(D_{e}\left(r_{2}\right)+D_{e}\left(r_{1}\right)\left(1-e^{-\beta\left(r_{2}-r_{e}\left(r_{1}\right)\right)}\right)^{2}-D_{e}\left(r_{2}\right)-D_{e}(\infty)+V_{{\rm diatomic}}(\infty)+V_{{\rm diatomic}}(r_{2})\right)/2\\
- & =\left(D_{e}\left(r_{2}\right)+D_{e}\left(r_{1}\right)\left(1-e^{-\beta\left(r_{2}-r_{e}\left(r_{1}\right)\right)}\right)^{2}-D_{e}\left(r_{2}\right)-D_{e,{\rm diatomic}}+V_{{\rm diatomic}}(\infty)+V_{{\rm diatomic}}(r_{2})\right)/2\\
+V(\infty,r_{2}) & =\left(D_{e}\left(r_{2}\right)+D_{e}\left(\infty\right)\left(1-e^{-\beta\left(r_{2}-r_{e}\left(\infty\right)\right)}\right)^{2}-D_{e}\left(r_{2}\right)-D_{e}(\infty)+V_{{\rm diatomic}}(\infty)+V_{{\rm diatomic}}(r_{2})\right)/2\\
+ & =\left(D_{e}\left(r_{2}\right)+D_{e,{\rm diatomic}}\left(1-e^{-\beta\left(r_{2}-r_{e,{\rm diatomic}}\right)}\right)-D_{e}\left(r_{2}\right)-D_{e,{\rm diatomic}}+V_{{\rm diatomic}}(\infty)+V_{{\rm diatomic}}(r_{2})\right)/2\\
+ & =\left(D_{e}\left(r_{2}\right)+V_{{\rm diatomic}}(r_{2})-D_{e}\left(r_{2}\right)+V_{{\rm diatomic}}(r_{2})\right)/2\\
+ & =V_{{\rm diatomic}}(r_{2})\\
 V\left(\infty,R_{e}\right) & =\left\{ D_{e}(R_{e})+D_{e}\left(\infty\right)\left(1-e^{-\beta\left(R_{e}-r_{e}\left(\infty\right)\right)}\right)^{2}-D_{e}(R_{e})-D_{e}(\infty)+V_{{\rm diatomic}}(\infty)+V_{{\rm diatomic}}(R_{e})\right\} /2\\
- & =\left\{ D_{e}(R_{e})+D_{\infty}\left(1-e^{-\beta\left(R_{e}-r_{\infty}\right)}\right)^{2}-D_{e}(R_{e})-D_{\infty}+V_{{\rm diatomic}}(\infty)+V_{{\rm diatomic}}(R_{e})\right\} /2\\
- & =\left\{ D_{\infty}\left(1-e^{-\beta\left(R_{e}-r_{\infty}\right)}\right)^{2}-D_{\infty}+V_{{\rm diatomic}}(R_{e})\right\} /2\\
-V\left(R_{e},\infty\right) & =\left\{ D_{\infty}\left(1-e^{-\beta\left(R_{e}-r_{\infty}\right)}\right)^{2}-D_{\infty}+V_{{\rm diatomic}}(R_{e})\right\} /2\quad\text{[They are just something meaningless, because global \ensuremath{R_{e}} is different from diatomic Re]}\\
-V\left(\infty,\infty\right) & =\left\{ D_{e}\left(\infty\right)+D_{e}\left(\infty\right)-D_{e}(\infty)-D_{e}(\infty)+V_{{\rm diatomic}}(\infty)+V_{{\rm diatomic}}(\infty)\right\} /2\\
+ & =\left\{ D_{e}(R_{e})+D_{e,{\rm diatomic}}\left(1-e^{-\beta\left(R_{e}-R_{e,{\rm diatomic}}\right)}\right)^{2}-D_{e}(R_{e})-D_{e,{\rm diatomic}}+V_{{\rm diatomic}}(\infty)+V_{{\rm diatomic}}(R_{e})\right\} /2\\
+ & =V_{{\rm diatomic}}(R_{e})\\
+V\left(R_{e},\infty\right) & =V_{{\rm diatomic}}(R_{e})\quad\text{[They are just something meaningless, because global \ensuremath{R_{e}} is different from diatomic Re]}\\
+V\left(\infty,\infty\right) & =\left\{ D_{e,{\rm diatomic}}+D_{e,{\rm diatomic}}-D_{e,{\rm diatomic}}-D_{e,{\rm diatomic}}+V_{{\rm diatomic}}(\infty)+V_{{\rm diatomic}}(\infty)\right\} /2\\
  & =0\\
-V(r_{e}(\infty),\infty) & =V(r_{\infty},\infty)\\
- & =\left\{ D_{e}\left(\infty\right)\left(1-e^{-\beta\left(r_{\infty}-r_{e}\left(\infty\right)\right)}\right)^{2}+D_{e}\left(r_{\infty}\right)\left(1-e^{-\beta\left(\infty-r_{e}\left(r_{\infty}\right)\right)}\right)^{2}-D_{e}(\infty)-D_{e}(r_{\infty})+V_{{\rm diatomic}}(r_{\infty})+V_{{\rm diatomic}}(\infty)\right\} /2\\
- & =\left\{ 0+D_{e}\left(r_{\infty}\right)-D_{\infty}-D_{e}(r_{\infty})-D_{\infty}+0\right\} /2\\
- & =-D_{\infty}
+V(r_{e}(\infty),\infty) & =V(r_{e,{\rm diatomic}},\infty)\\
+ & =\left\{ D_{e,{\rm diatomic}}\left(1-e^{-\beta\left(R_{e,{\rm diatomic}}-R_{e,{\rm diatomic}}\right)}\right)^{2}+D_{e}\left(R_{e,{\rm diatomic}}\right)\left(1-e^{-\beta\left(\infty-r_{e}\left(R_{e,{\rm diatomic}}\right)\right)}\right)^{2}-D_{e,{\rm diatomic}}-D_{e}(R_{e,{\rm diatomic}})+V_{{\rm diatomic}}(R_{e,{\rm diatomic}})+V_{{\rm diatomic}}(\infty)\right\} /2\\
+ & =\left\{ 0+D_{e}\left(R_{e,{\rm diatomic}}\right)-D_{e,{\rm diatomic}}-D_{e}(R_{e,{\rm diatomic}}-D_{e,{\rm diatomic}}+0\right\} /2\\
+ & =0
 \end{align}
 
 \end_inset
@@ -858,6 +874,32 @@ V(r_{e}(\infty),\infty) & =V(r_{\infty},\infty)\\
 
 \begin_layout Standard
 It seems that everything works perfectly.
+ However, the drawback is we need to define a proper function for 
+\begin_inset Formula $D_{e}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{e}$
+\end_inset
+
+, and 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+ Especially by now we do not know how these functions behave when 
+\begin_inset Formula $r_{1}$
+\end_inset
+
+ or 
+\begin_inset Formula $r_{2}$
+\end_inset
+
+ is less than 
+\begin_inset Formula $R_{e,{\rm diatomic}}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -906,7 +948,11 @@ The problem here is that when
 \begin_inset Formula $r$
 \end_inset
 
--dependence but is badly shfited.
+-dependence but is badly 
+\lang british
+shifted
+\lang english
+.
  We need to add a function which is 0 when 
 \begin_inset Formula $r_{1}\lll\infty$
 \end_inset
@@ -924,7 +970,11 @@ The problem here is that when
 \end_layout
 
 \begin_layout Standard
-The first two terms in Eq.
+The first two terms in 
+\lang british
+Eq
+\lang english
+.
  
 \begin_inset CommandInset ref
 LatexCommand ref
